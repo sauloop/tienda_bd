@@ -88,9 +88,9 @@ public class HomeController extends HttpServlet {
 
 		request.setAttribute("proplan", proplan);
 
-		if (request.getParameter("mensaje") != null) {
-			request.setAttribute("mensaje", request.getParameter("mensaje"));
-		}
+//		if (request.getParameter("mensaje") != null) {
+//			request.setAttribute("mensaje", request.getParameter("mensaje"));
+//		}
 
 		try {
 
