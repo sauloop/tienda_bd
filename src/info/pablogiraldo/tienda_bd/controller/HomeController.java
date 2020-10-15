@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -27,6 +28,8 @@ import info.pablogiraldo.tienda_bd.model.Product;
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	List<Product> listProducts;
+
 	private ProductDAO productDAO;
 
 	String rutaIdioma;
@@ -44,6 +47,7 @@ public class HomeController extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		productDAO = new ProductDAO();
+		listProducts = new ArrayList<>();
 	}
 
 	/**
@@ -52,12 +56,6 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-//		Base64 base64 = new Base64();
-//
-//		String encode_pass = new String(base64.encode("abc".getBytes()));
-//
-//		System.out.println(encode_pass);
 
 		if (request.getSession().getAttribute("idioma") == null) {
 			request.getSession().setAttribute("idioma", "es");
@@ -86,19 +84,31 @@ public class HomeController extends HttpServlet {
 			System.out.println(e.toString());
 		}
 
-		request.setAttribute("proplan", proplan);
-
 //		if (request.getParameter("mensaje") != null) {
 //			request.setAttribute("mensaje", request.getParameter("mensaje"));
 //		}
 
 		try {
 
-			listProducts(request, response);
+			listProducts = productDAO.listAllProducts();
 
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
+
+		request.setAttribute("proplan", proplan);
+
+		request.setAttribute("products", listProducts);
+
+		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
+
+//		try {
+//
+//			listProducts(request, response);
+//
+//		} catch (SQLException ex) {
+//			throw new ServletException(ex);
+//		}
 	}
 
 	/**
@@ -111,13 +121,13 @@ public class HomeController extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private void listProducts(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-
-		List<Product> listProducts = productDAO.listAllProducts();
-
-		request.setAttribute("products", listProducts);
-
-		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
-	}
+//	private void listProducts(HttpServletRequest request, HttpServletResponse response)
+//			throws SQLException, IOException, ServletException {
+//
+//		List<Product> listProducts = productDAO.listAllProducts();
+//
+//		request.setAttribute("products", listProducts);
+//
+//		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
+//	}
 }
