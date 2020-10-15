@@ -17,15 +17,15 @@
 	<%
 		String displayLogin = (String) session.getAttribute("user") != null ? "display:none" : "";
 
-		String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
+			String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
 
-		String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
+			String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
 
-		String displayAdmin = usr.equals("admin") ? "" : "display:none";
+			String displayAdmin = usr.equals("admin") ? "" : "display:none";
 
-		String displayUsr = !usr.equals("admin") ? "" : "display:none";
+			String displayUsr = !usr.equals("admin") ? "" : "display:none";
 
-		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
+		// 		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
 
 		String selEn = session.getAttribute("idioma").equals("en") ? "selected" : "";
 
@@ -55,7 +55,7 @@
 
 	<div Style="<%=displayLogout%>">
 		<br> <br>
-		<h3><%=mensaje%></h3>
+		<%-- 		<h3><%=mensaje%></h3> --%>
 		<br> <br>
 	</div>
 
