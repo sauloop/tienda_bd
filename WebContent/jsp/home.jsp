@@ -60,9 +60,8 @@
 	</div>
 
 	<div Style="<%=displayLogout%>">
-		<br> <br> <a style="font-size: 20px"
-			href="vercarro">Ver carro</a> <br>
-		<br>
+		<br> <br> <a style="font-size: 20px" href="vercarro">Ver
+			carro</a> <br> <br>
 	</div>
 
 	<div Style="<%=displayLogin%>">
@@ -73,8 +72,7 @@
 	</div>
 
 	<div Style="<%=displayLogout%>">
-		<br> <br> <a style="font-size: 20px"
-			href="/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
+		<br> <br> <a style="font-size: 20px" href="/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
 		<br> <br>
 	</div>
 
@@ -120,13 +118,11 @@
 					</td>
 					<td><div Style="<%=displayAdmin%>">
 							<a style="font-size: 20px"
-								href="<%=request.getContextPath()%>/deleteprod?id=
-				<c:out value="${product.id}" />">Borrar</a>
+								href="<%=request.getContextPath()%>/deleteprod?id=<c:out value="${product.id}" />">Borrar</a>
 						</div></td>
 					<td><div Style="<%=displayUsr%>;<%=displayLogout%>">
 							<a style="font-size: 20px"
-								href="/carro?id=
-				<c:out value="${product.id}" />">Comprar</a>
+								href="/carro?id=<c:out value="${product.id}" />">Comprar</a>
 						</div></td>
 				</tr>
 			</c:forEach>
