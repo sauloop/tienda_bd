@@ -118,6 +118,6 @@ public class HomeController extends HttpServlet {
 
 		request.setAttribute("products", listProducts);
 
-		request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
 	}
 }
