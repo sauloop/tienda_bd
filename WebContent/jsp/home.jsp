@@ -66,8 +66,8 @@ if (request.getAttribute("products") == null) {
 	</div>
 
 	<div Style="<%=displayLogout%>">
-		<br /> <br /> <a style="font-size: 20px" href="vercarro">Ver
-			carro</a> <br /> <br />
+		<br /> <br /> <a style="font-size: 20px" href="vercarro"><%=proplan.getProperty("inicio.vercarro")%></a>
+		<br /> <br />
 	</div>
 
 	<div Style="<%=displayLogin%>">
