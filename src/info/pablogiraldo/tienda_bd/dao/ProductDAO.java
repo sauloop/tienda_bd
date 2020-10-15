@@ -142,7 +142,7 @@ public class ProductDAO {
 		}
 
 		else {
-			product = null;
+			product = new Product(1, "", "", 0, 0, 0);
 		}
 
 		resultSet.close();
