@@ -73,6 +73,11 @@ public class ProductDAO {
 
 		Collections.sort(listProducts);
 
+		if (listProducts.size() == 0) {
+			Product product = new Product(1, "test", "test", 10, 21, 15);
+			listProducts.add(product);
+		}
+
 		return listProducts;
 	}
 
