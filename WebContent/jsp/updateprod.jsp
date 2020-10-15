@@ -33,7 +33,8 @@
 			<input type="text" name="stock" value="<%=prod.getStock()%>"><br>
 			<br> <input type="submit" value="Enviar">
 		</form>
-		<br> <br> <a style="font-size: 20px" href="/">Inicio</a>
+		<br> <br> <a style="font-size: 20px"
+			href="<%=request.getContextPath()%>/">Inicio</a>
 	</div>
 	<br>
 	<br>
