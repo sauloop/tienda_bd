@@ -9,7 +9,10 @@
 </head>
 <body>
 	<%
-		String user = (String) session.getAttribute("user");
+		String user = "";
+		if (session.getAttribute("user") != null) {
+			user = (String) session.getAttribute("user");
+		}
 	%>
 
 	<br>
