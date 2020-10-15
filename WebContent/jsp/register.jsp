@@ -22,7 +22,7 @@
 			<br> <input type="submit" value="Enviar">
 		</form>
 		<br> <br> <a style="font-size: 20px"
-			href="<%=request.getContextPath()%>/">Inicio</a>
+			href="/">Inicio</a>
 	</div>
 	<br>
 	<br>
