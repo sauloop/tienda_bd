@@ -9,7 +9,7 @@
 
 	if (request.getAttribute("products") == null) {
 
-		ArrayList<Product> productos = new ArrayList<Product>();
+		ArrayList<Product> products = new ArrayList<Product>();
 	}
 %>
 <!DOCTYPE html>
