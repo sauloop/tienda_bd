@@ -127,16 +127,16 @@ if (request.getAttribute("products") == null) {
 					<td>
 						<div Style="<%=displayAdmin%>">
 							<a style="font-size: 20px"
-								href="<%=request.getContextPath()%>/updateprod?id=<c:out value="${product.id}" />">Editar</a>
+								href="<%=request.getContextPath()%>/updateprod?id=<c:out value="${product.id}" />"><%=proplan.getProperty("inicio.editar")%></a>
 						</div>
 					</td>
 					<td><div Style="<%=displayAdmin%>">
 							<a style="font-size: 20px"
-								href="<%=request.getContextPath()%>/deleteprod?id=<c:out value="${product.id}" />">Borrar</a>
+								href="<%=request.getContextPath()%>/deleteprod?id=<c:out value="${product.id}" />"><%=proplan.getProperty("inicio.borrar")%></a>
 						</div></td>
 					<td><div Style="<%=displayUsr%>;<%=displayLogout%>">
 							<a style="font-size: 20px"
-								href="<%=request.getContextPath()%>/carro?id=<c:out value="${product.id}" />">Comprar</a>
+								href="<%=request.getContextPath()%>/carro?id=<c:out value="${product.id}" />"><%=proplan.getProperty("inicio.comprar")%></a>
 						</div></td>
 				</tr>
 			</c:forEach>
