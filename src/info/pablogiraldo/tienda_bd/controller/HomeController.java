@@ -90,7 +90,6 @@ public class HomeController extends HttpServlet {
 
 		if (request.getParameter("mensaje") != null) {
 			request.setAttribute("mensaje", request.getParameter("mensaje"));
-
 		}
 
 		try {
