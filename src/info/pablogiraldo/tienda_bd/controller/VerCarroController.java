@@ -31,7 +31,7 @@ public class VerCarroController extends HttpServlet {
 			throws ServletException, IOException {
 		request.setAttribute("carro", Data.carro);
 
-		request.getRequestDispatcher("/jsp/vercarro.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/vercarro.jsp").forward(request, response);
 	}
 
 	/**
