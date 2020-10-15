@@ -3,8 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="info.pablogiraldo.tienda_bd.model.Product"%>
 <%@page import="java.util.Properties"%>
+<%@page import="java.util.ArrayList"%>
 <%
 	Properties proplan = (Properties) request.getAttribute("proplan");
+
+	if (request.getAttribute("products") == null) {
+
+		ArrayList<Product> productos = new ArrayList<Product>();
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -17,13 +23,13 @@
 	<%
 		String displayLogin = (String) session.getAttribute("user") != null ? "display:none" : "";
 
-			String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
+		String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
 
-			String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
+		String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
 
-			String displayAdmin = usr.equals("admin") ? "" : "display:none";
+		String displayAdmin = usr.equals("admin") ? "" : "display:none";
 
-			String displayUsr = !usr.equals("admin") ? "" : "display:none";
+		String displayUsr = !usr.equals("admin") ? "" : "display:none";
 
 		// 		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
 
