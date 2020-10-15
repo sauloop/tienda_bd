@@ -51,9 +51,10 @@ public class UserDAO {
 
 		List<User> listUsers = new ArrayList<>();
 		String sql = "SELECT * FROM users";
-		connection = getConnection();
 
-		connection = DbConnection.getConnection();
+//		connection = DbConnection.getConnection();
+
+		connection = getConnection();
 
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);
