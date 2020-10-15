@@ -70,7 +70,7 @@ public class CarroController extends HttpServlet {
 
 //			response.sendRedirect(request.getContextPath() + "/home");
 
-			response.sendRedirect(request.getContextPath() + "home/?mensaje=" + prod.getName() + " comprado.");
+			response.sendRedirect(request.getContextPath() + "home?mensaje=" + prod.getName() + " comprado.");
 		}
 	}
 
