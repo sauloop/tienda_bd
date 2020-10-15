@@ -45,26 +45,15 @@ public class ProductDAO {
 
 	public List<Product> listAllProducts() throws SQLException {
 
-		Statement statement = null;
-		ResultSet resultSet = null;
-
 		List<Product> listProducts = new ArrayList<>();
 		String sql = "SELECT * FROM products";
-		connection = getConnection();
 
 //		connection = DbConnection.getConnection();
 
 		connection = getConnection();
 
-		if (connection != null) {
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(sql);
-		} else {
-			connection = DbConnection.getConnection();
-
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(sql);
-		}
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery(sql);
 
 		while (resultSet.next()) {
 
