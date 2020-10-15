@@ -42,7 +42,9 @@ public class LogoutController extends HttpServlet {
 
 		request.getSession().setAttribute("user", null);
 
-		response.sendRedirect(request.getContextPath() + "/");
+//		response.sendRedirect(request.getContextPath() + "/");
+
+		request.getRequestDispatcher("").forward(request, response);
 	}
 
 }
