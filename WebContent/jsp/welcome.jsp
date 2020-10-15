@@ -29,7 +29,7 @@
 	<br>
 	<br>
 	<div>
-		<a style="font-size: 20px" href="<%=request.getContextPath()%>">Inicio</a>
+		<a style="font-size: 20px" href="/">Inicio</a>
 	</div>
 
 
