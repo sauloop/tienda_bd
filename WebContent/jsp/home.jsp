@@ -7,10 +7,10 @@
 <%
 	Properties proplan = (Properties) request.getAttribute("proplan");
 
-	if (request.getAttribute("products") == null) {
+if (request.getAttribute("products") == null) {
 
-		ArrayList<Product> products = new ArrayList<Product>();
-	}
+	ArrayList<Product> products = new ArrayList<Product>();
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -23,19 +23,19 @@
 	<%
 		String displayLogin = (String) session.getAttribute("user") != null ? "display:none" : "";
 
-		String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
+	String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
 
-		String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
+	String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
 
-		String displayAdmin = usr.equals("admin") ? "" : "display:none";
+	String displayAdmin = usr.equals("admin") ? "" : "display:none";
 
-		String displayUsr = !usr.equals("admin") ? "" : "display:none";
+	String displayUsr = !usr.equals("admin") ? "" : "display:none";
 
-		// 		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
+	// 		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
 
-		String selEn = session.getAttribute("idioma").equals("en") ? "selected" : "";
+	String selEn = session.getAttribute("idioma").equals("en") ? "selected" : "";
 
-		String selEs = session.getAttribute("idioma").equals("es") ? "selected" : "";
+	String selEs = session.getAttribute("idioma").equals("es") ? "selected" : "";
 	%>
 	<script type="text/javascript">
 		function loadIdioma(selection) {
@@ -45,7 +45,7 @@
 	</script>
 
 	<div class="custom-select">
-		<br>
+		<br />
 		<form action="<%=request.getContextPath()%>">
 			<select name="idioma" onchange="loadIdioma(this);">
 				<option value="en" <%=selEn%>>English</option>
@@ -53,21 +53,21 @@
 			</select>
 		</form>
 	</div>
-	<br>
-	<br>
+	<br />
+	<br />
 	<h1>
 		<a style="font-size: 40px" href="<%=request.getContextPath()%>"><%=proplan.getProperty("inicio.titulo")%></a>
 	</h1>
 
-	<div Style="<%=displayLogout%>">
-		<br> <br>
-		<%-- 		<h3><%=mensaje%></h3> --%>
-		<br> <br>
-	</div>
+	<%-- 		<div Style="<%=displayLogout%>"> --%>
+	<!-- 			<br/> <br/> -->
+	<%-- 					<h3><%=mensaje%></h3> --%>
+	<!-- 			<br/> <br/> -->
+	<!-- 		</div> -->
 
 	<div Style="<%=displayLogout%>">
-		<br> <br> <a style="font-size: 20px" href="vercarro">Ver
-			carro</a> <br> <br>
+		<br /> <br /> <a style="font-size: 20px" href="vercarro">Ver
+			carro</a> <br /> <br />
 	</div>
 
 	<div Style="<%=displayLogin%>">
@@ -79,7 +79,7 @@
 
 	<div Style="<%=displayLogout%>">
 		<br> <br> <a style="font-size: 20px" href="/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
-		<br> <br>
+		<br /> <br />
 	</div>
 
 	<div Style="<%=displayAdmin%>;<%=displayLogout%>">
@@ -94,10 +94,9 @@
 			<input type="submit" value="Enviar">
 		</form>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
+	<br />
+	<br />
+
 	<div>
 		<table style="width: 100%">
 			<tr>
