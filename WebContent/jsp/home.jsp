@@ -63,9 +63,9 @@ if (request.getAttribute("products") == null) {
 		<%
 			if (!mensaje.equals("")) {
 		%>
-		<br /> <br />
+		<br />
 		<h3><%=mensaje%></h3>
-		<br /> <br />
+		<br />
 		<%
 			}
 		%>
