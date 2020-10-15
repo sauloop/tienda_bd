@@ -90,14 +90,19 @@ if (request.getAttribute("products") == null) {
 
 	<div Style="<%=displayAdmin%>;<%=displayLogout%>">
 		<br> <br>
-		<h3>Nuevo producto</h3>
+		<h3><%=proplan.getProperty("inicio.nuevoproducto")%></h3>
 		<form action="<%=request.getContextPath()%>/createprod" method="post">
-			<input type="text" name="name" placeholder="Nombre"><br>
-			<input type="text" name="info" placeholder="Info"><br> <input
-				type="text" name="price" placeholder="Precio sin IVA"><br>
-			<input type="text" name="iva" placeholder="IVA"><br> <input
-				type="text" name="stock" placeholder="Stock"><br> <br>
-			<input type="submit" value="Enviar">
+			<input type="text" name="name"
+				placeholder="<%=proplan.getProperty("inicio.nombre")%>"><br>
+			<input type="text" name="info"
+				placeholder="<%=proplan.getProperty("inicio.info")%>"><br>
+			<input type="text" name="price"
+				placeholder="<%=proplan.getProperty("inicio.precio")%>"><br>
+			<input type="text" name="iva"
+				placeholder="<%=proplan.getProperty("inicio.iva")%>"><br>
+			<input type="text" name="stock"
+				placeholder="<%=proplan.getProperty("inicio.unidades")%>"><br>
+			<br> <input type="submit" value="Enviar">
 		</form>
 	</div>
 	<br />
