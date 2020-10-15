@@ -23,8 +23,8 @@
 			<%=user%>.
 		</h1>
 
-		&nbsp;&nbsp; <a style="font-size: 20px" href="/logout">Cerrar
-			sesión</a>
+		&nbsp;&nbsp; <a style="font-size: 20px"
+			href="<%=request.getContextPath()%>/logout">Cerrar sesión</a>
 	</div>
 	<br>
 	<br>
