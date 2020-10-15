@@ -53,7 +53,6 @@ if (request.getAttribute("products") == null) {
 			</select>
 		</form>
 	</div>
-	<br />
 	<h1>
 		<a style="font-size: 40px" href="<%=request.getContextPath()%>"><%=proplan.getProperty("inicio.titulo")%></a>
 	</h1>
