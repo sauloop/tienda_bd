@@ -21,6 +21,11 @@ public class ProductDAO {
 
 	private Connection getConnection() {
 		return DbConnection.getConnection();
+
+//		String url = "jdbc:mysql://ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/vfyv7vwy5u7165ss";
+//		String user = "m9rbuvbdcexo6zye";
+//		String pass = "r86jezkjgdc8mb7z";
+
 	}
 
 	public boolean insertProduct(Product product) throws SQLException {
