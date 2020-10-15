@@ -74,7 +74,7 @@
 
 	<div Style="<%=displayLogout%>">
 		<br> <br> <a style="font-size: 20px"
-			href="<%=request.getContextPath()%>/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
+			href="/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
 		<br> <br>
 	</div>
 
