@@ -122,7 +122,7 @@
 						</div></td>
 					<td><div Style="<%=displayUsr%>;<%=displayLogout%>">
 							<a style="font-size: 20px"
-								href="/carro?id=<c:out value="${product.id}" />">Comprar</a>
+								href="<%=request.getContextPath()%>/carro?id=<c:out value="${product.id}" />">Comprar</a>
 						</div></td>
 				</tr>
 			</c:forEach>
