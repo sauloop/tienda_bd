@@ -77,13 +77,13 @@ public class CreateprodController extends HttpServlet {
 
 //			response.sendRedirect(request.getContextPath());
 
-			request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+			request.getRequestDispatcher("").forward(request, response);
 		}
 
 		else {
 //			response.sendRedirect(request.getContextPath());
 
-			request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+			request.getRequestDispatcher("").forward(request, response);
 		}
 	}
 
