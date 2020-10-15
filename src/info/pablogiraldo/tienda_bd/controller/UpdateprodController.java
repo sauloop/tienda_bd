@@ -89,7 +89,9 @@ public class UpdateprodController extends HttpServlet {
 				throw new ServletException(ex);
 			}
 
-			response.sendRedirect(request.getContextPath());
+//			response.sendRedirect(request.getContextPath());
+
+			request.getRequestDispatcher("").forward(request, response);
 		}
 	}
 
