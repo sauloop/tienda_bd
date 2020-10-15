@@ -59,7 +59,7 @@ if (request.getAttribute("products") == null) {
 		<a style="font-size: 40px" href="<%=request.getContextPath()%>"><%=proplan.getProperty("inicio.titulo")%></a>
 	</h1>
 
-	<div Style="<%=displayLogout%>">
+	<div Style="<%=displayLogin%>">
 		<br /> <br />
 		<h3><%=mensaje%></h3>
 		<br /> <br />
