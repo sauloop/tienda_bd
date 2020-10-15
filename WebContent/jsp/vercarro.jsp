@@ -54,8 +54,8 @@
 	<br>
 
 	<div Style="<%=displayLogout%>">
-		<br> <br> <a style="font-size: 20px"
-			href="<%=request.getContextPath()%>/">Inicio</a> <br> <br>
+		<br> <br> <a style="font-size: 20px" href="/">Inicio</a> <br>
+		<br>
 	</div>
 </body>
 </html>
