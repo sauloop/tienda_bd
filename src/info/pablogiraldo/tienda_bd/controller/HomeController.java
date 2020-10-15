@@ -84,9 +84,9 @@ public class HomeController extends HttpServlet {
 			System.out.println(e.toString());
 		}
 
-//		if (request.getParameter("mensaje") != null) {
-//			request.setAttribute("mensaje", request.getParameter("mensaje"));
-//		}
+		if (request.getParameter("mensaje") != null) {
+			request.setAttribute("mensaje", request.getParameter("mensaje"));
+		}
 
 		try {
 

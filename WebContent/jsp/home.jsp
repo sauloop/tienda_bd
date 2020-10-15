@@ -31,7 +31,7 @@ if (request.getAttribute("products") == null) {
 
 	String displayUsr = !usr.equals("admin") ? "" : "display:none";
 
-	// 		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
+	String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
 
 	String selEn = session.getAttribute("idioma").equals("en") ? "selected" : "";
 
@@ -59,11 +59,11 @@ if (request.getAttribute("products") == null) {
 		<a style="font-size: 40px" href="<%=request.getContextPath()%>"><%=proplan.getProperty("inicio.titulo")%></a>
 	</h1>
 
-	<%-- 		<div Style="<%=displayLogout%>"> --%>
-	<!-- 			<br/> <br/> -->
-	<%-- 					<h3><%=mensaje%></h3> --%>
-	<!-- 			<br/> <br/> -->
-	<!-- 		</div> -->
+	<div Style="<%=displayLogout%>">
+		<br /> <br />
+		<h3><%=mensaje%></h3>
+		<br /> <br />
+	</div>
 
 	<div Style="<%=displayLogout%>">
 		<br /> <br /> <a style="font-size: 20px" href="vercarro">Ver
