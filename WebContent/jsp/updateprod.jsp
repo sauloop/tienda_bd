@@ -12,7 +12,7 @@
 	<%
 		// 		String displayLogin = (String) session.getAttribute("user") != null ? "display:none" : "";
 
-		String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
+	String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
 	%>
 	<br>
 	<br>
@@ -34,7 +34,7 @@
 			<br> <input type="submit" value="Enviar">
 		</form>
 		<br> <br> <a style="font-size: 20px"
-			href="<%=request.getContextPath()%>/home">Inicio</a>
+			href="<%=request.getContextPath()%>/home">Inicio test</a>
 	</div>
 	<br>
 	<br>
