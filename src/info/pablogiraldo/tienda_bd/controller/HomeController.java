@@ -23,7 +23,7 @@ import info.pablogiraldo.tienda_bd.model.Product;
 /**
  * Servlet implementation class HomeController
  */
-@WebServlet("/")
+@WebServlet("/home")
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
