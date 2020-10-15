@@ -44,7 +44,7 @@ public class LogoutController extends HttpServlet {
 
 //		response.sendRedirect(request.getContextPath() + "/");
 
-		request.getRequestDispatcher("").forward(request, response);
+		request.getRequestDispatcher("/").forward(request, response);
 	}
 
 }
