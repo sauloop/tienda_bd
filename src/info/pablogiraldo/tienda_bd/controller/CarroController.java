@@ -59,7 +59,9 @@ public class CarroController extends HttpServlet {
 
 			Data.carro.add(prod);
 
-			response.sendRedirect(request.getContextPath() + "?mensaje=" + prod.getName() + " comprado.");
+//			response.sendRedirect(request.getContextPath() + "?mensaje=" + prod.getName() + " comprado.");
+
+			response.sendRedirect("?mensaje=" + prod.getName() + " comprado.");
 		}
 	}
 
