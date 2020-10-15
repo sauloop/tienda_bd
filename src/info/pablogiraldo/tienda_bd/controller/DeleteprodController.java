@@ -70,15 +70,15 @@ public class DeleteprodController extends HttpServlet {
 
 			}
 
-//			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath() + "/home");
 
-			request.getRequestDispatcher("").forward(request, response);
+//			request.getRequestDispatcher("").forward(request, response);
 		}
 
 		else {
-//			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath() + "/home");
 
-			request.getRequestDispatcher("").forward(request, response);
+//			request.getRequestDispatcher("").forward(request, response);
 		}
 	}
 
