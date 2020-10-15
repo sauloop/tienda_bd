@@ -61,7 +61,7 @@
 
 	<div Style="<%=displayLogout%>">
 		<br> <br> <a style="font-size: 20px"
-			href="<%=request.getContextPath()%>/vercarro">Ver carro</a> <br>
+			href="vercarro">Ver carro</a> <br>
 		<br>
 	</div>
 
