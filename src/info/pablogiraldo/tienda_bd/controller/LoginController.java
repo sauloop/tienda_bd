@@ -2,6 +2,7 @@ package info.pablogiraldo.tienda_bd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.codec.binary.Base64;
 
+import info.pablogiraldo.tienda_bd.common.Data;
 import info.pablogiraldo.tienda_bd.dao.UserDAO;
+import info.pablogiraldo.tienda_bd.model.Product;
 import info.pablogiraldo.tienda_bd.model.User;
 
 /**
@@ -81,6 +84,9 @@ public class LoginController extends HttpServlet {
 			}
 
 			if (usr.getPass().equals(encode_pass)) {
+
+				Data.carro = new ArrayList<Product>();
+
 				request.getSession().setAttribute("user", name);
 
 				request.getRequestDispatcher("/jsp/welcome.jsp").forward(request, response);
