@@ -41,7 +41,7 @@ public class ProductDAO {
 		boolean rowInserted = statement.executeUpdate() > 0;
 
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		return rowInserted;
 	}
@@ -50,8 +50,6 @@ public class ProductDAO {
 
 		List<Product> listProducts = new ArrayList<>();
 		String sql = "SELECT * FROM products";
-
-//		connection = DbConnection.getConnection();
 
 		connection = getConnection();
 
@@ -91,7 +89,7 @@ public class ProductDAO {
 		boolean rowDeleted = statement.executeUpdate() > 0;
 
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		return rowDeleted;
 	}
@@ -113,7 +111,7 @@ public class ProductDAO {
 		boolean rowUpdated = statement.executeUpdate() > 0;
 
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		return rowUpdated;
 	}

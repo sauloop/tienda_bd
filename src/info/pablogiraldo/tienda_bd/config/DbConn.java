@@ -6,14 +6,12 @@ import java.sql.SQLException;
 
 public class DbConn {
 
-	// Propiedades
 	private static Connection conn = null;
 	private String driver;
 	private String url;
 	private String usuario;
 	private String password;
 
-	// Constructor
 	private DbConn() {
 
 		driver = "com.mysql.cj.jdbc.Driver";
@@ -48,9 +46,8 @@ public class DbConn {
 			e.printStackTrace();
 		}
 
-	} // Fin constructor
+	}
 
-	// Métodos
 	public static Connection getConnection() {
 
 		if (conn == null) {
@@ -58,6 +55,5 @@ public class DbConn {
 		}
 
 		return conn;
-	} // Fin getConnection
-
+	}
 }

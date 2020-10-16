@@ -45,7 +45,7 @@ public class UserDAO {
 		boolean rowInserted = statement.executeUpdate() > 0;
 
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		return rowInserted;
 	}
@@ -54,8 +54,6 @@ public class UserDAO {
 
 		List<User> listUsers = new ArrayList<>();
 		String sql = "SELECT * FROM users";
-
-//		connection = DbConnection.getConnection();
 
 		connection = getConnection();
 
@@ -74,7 +72,7 @@ public class UserDAO {
 
 		resultSet.close();
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		Collections.sort(listUsers);
 
@@ -92,7 +90,7 @@ public class UserDAO {
 		boolean rowDeleted = statement.executeUpdate() > 0;
 
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		return rowDeleted;
 	}
@@ -110,7 +108,7 @@ public class UserDAO {
 		boolean rowUpdated = statement.executeUpdate() > 0;
 
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		return rowUpdated;
 	}
