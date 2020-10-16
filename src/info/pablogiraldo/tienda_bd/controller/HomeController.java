@@ -94,7 +94,6 @@ public class HomeController extends HttpServlet {
 
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
-//			response.sendRedirect(request.getContextPath() + "home");
 		}
 
 		request.setAttribute("proplan", proplan);
