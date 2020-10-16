@@ -3,8 +3,11 @@ package info.pablogiraldo.tienda_bd.config;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+//import info.pablogiraldo.tienda_bd.common.Data;
 
 public class DbConnection {
+
+//	private String env = Data.getProperties().getProperty("env");
 
 	// Dev
 
