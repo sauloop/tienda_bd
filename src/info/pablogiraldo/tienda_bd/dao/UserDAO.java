@@ -8,7 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import info.pablogiraldo.tienda_bd.config.DbConnection;
+import info.pablogiraldo.tienda_bd.config.DbConn;
+//import info.pablogiraldo.tienda_bd.config.DbConnection;
 import info.pablogiraldo.tienda_bd.model.User;
 import org.apache.commons.codec.binary.Base64;
 
@@ -21,7 +22,9 @@ public class UserDAO {
 	}
 
 	private Connection getConnection() {
-		return DbConnection.getConnection();
+//		return DbConnection.getConnection();
+
+		return DbConn.getConnection();
 	}
 
 	public boolean insertUser(User user) throws SQLException {

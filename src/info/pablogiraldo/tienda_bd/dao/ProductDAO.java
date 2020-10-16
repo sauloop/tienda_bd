@@ -8,7 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import info.pablogiraldo.tienda_bd.config.DbConnection;
+import info.pablogiraldo.tienda_bd.config.DbConn;
+//import info.pablogiraldo.tienda_bd.config.DbConnection;
 import info.pablogiraldo.tienda_bd.model.Product;
 
 public class ProductDAO {
@@ -20,7 +21,9 @@ public class ProductDAO {
 	}
 
 	private Connection getConnection() {
-		return DbConnection.getConnection();
+//		return DbConnection.getConnection();
+		
+		return DbConn.getConnection();
 	}
 
 	public boolean insertProduct(Product product) throws SQLException {
