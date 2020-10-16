@@ -30,12 +30,24 @@ public class DbConn {
 		usuario = "m9rbuvbdcexo6zye";
 		password = "r86jezkjgdc8mb7z";
 
+//		try {
+//			Class.forName(driver);
+//			conn = DriverManager.getConnection(url, usuario, password);
+//		} catch (ClassNotFoundException | SQLException e) {
+//			e.printStackTrace();
+//		}
+
 		try {
 			Class.forName(driver);
+
 			conn = DriverManager.getConnection(url, usuario, password);
-		} catch (ClassNotFoundException | SQLException e) {
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 	} // Fin constructor
 
 	// Métodos
