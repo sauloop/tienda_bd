@@ -84,31 +84,33 @@ public class HomeController extends HttpServlet {
 			System.out.println(e.toString());
 		}
 
+		request.setAttribute("proplan", proplan);
+
 		if (request.getParameter("mensaje") != null) {
 			request.setAttribute("mensaje", request.getParameter("mensaje"));
 		}
 
-		try {
-
-			listProducts = productDAO.listAllProducts();
-
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
-		}
-
-		request.setAttribute("proplan", proplan);
-
-		request.setAttribute("products", listProducts);
-
-		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
-
 //		try {
 //
-//			listProducts(request, response);
+//			listProducts = productDAO.listAllProducts();
 //
 //		} catch (SQLException ex) {
 //			throw new ServletException(ex);
 //		}
+//
+//	
+//
+//		request.setAttribute("products", listProducts);
+//
+//		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
+
+		try {
+
+			listProducts(request, response);
+
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
 	}
 
 	/**
@@ -121,13 +123,13 @@ public class HomeController extends HttpServlet {
 		doGet(request, response);
 	}
 
-//	private void listProducts(HttpServletRequest request, HttpServletResponse response)
-//			throws SQLException, IOException, ServletException {
-//
-//		List<Product> listProducts = productDAO.listAllProducts();
-//
-//		request.setAttribute("products", listProducts);
-//
-//		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
-//	}
+	private void listProducts(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		List<Product> listProducts = productDAO.listAllProducts();
+
+		request.setAttribute("products", listProducts);
+
+		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
+	}
 }
