@@ -93,8 +93,8 @@ public class HomeController extends HttpServlet {
 			listProducts = productDAO.listAllProducts();
 
 		} catch (SQLException ex) {
-//			throw new ServletException(ex);
-			response.sendRedirect(request.getContextPath() + "home");
+			throw new ServletException(ex);
+//			response.sendRedirect(request.getContextPath() + "home");
 		}
 
 		request.setAttribute("proplan", proplan);
