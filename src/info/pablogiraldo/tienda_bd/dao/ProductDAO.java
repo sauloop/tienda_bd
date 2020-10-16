@@ -22,7 +22,7 @@ public class ProductDAO {
 
 	private Connection getConnection() {
 //		return DbConnection.getConnection();
-		
+
 		return DbConn.getConnection();
 	}
 
@@ -73,7 +73,7 @@ public class ProductDAO {
 
 		resultSet.close();
 		statement.close();
-		connection.close();
+//		connection.close();
 
 		Collections.sort(listProducts);
 
