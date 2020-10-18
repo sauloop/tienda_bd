@@ -17,7 +17,7 @@ if (request.getAttribute("products") == null) {
 <head>
 <meta charset="ISO-8859-1">
 <title><%=proplan.getProperty("inicio.titulopag")%></title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href=" css/style.css">
 </head>
 <body>
 	<%
@@ -82,7 +82,8 @@ if (request.getAttribute("products") == null) {
 	</div>
 
 	<div Style="<%=displayLogout%>">
-		<br> <br> <a style="font-size: 20px" href="/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
+		<br> <br> <a style="font-size: 20px"
+			href="<%=request.getContextPath()%>/logout"><%=proplan.getProperty("inicio.cerrarses")%></a>
 		<br /> <br />
 	</div>
 

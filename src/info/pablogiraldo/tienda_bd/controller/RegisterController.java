@@ -78,7 +78,7 @@ public class RegisterController extends HttpServlet {
 
 				request.setAttribute("usr", name);
 
-				request.getRequestDispatcher("/jsp/register.jsp").forward(request, response);
+				request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 			}
 
 			if (!error) {
@@ -99,7 +99,7 @@ public class RegisterController extends HttpServlet {
 		else
 
 		{
-			request.getRequestDispatcher("/jsp/register.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 		}
 	}
 

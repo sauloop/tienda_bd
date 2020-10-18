@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import info.pablogiraldo.tienda_bd.common.Data;
+import info.pablogiraldo.tienda_bd.config.DbConn;
+
 //import org.apache.commons.codec.binary.Base64;
 
 import info.pablogiraldo.tienda_bd.dao.ProductDAO;
@@ -32,7 +35,20 @@ public class HomeController extends HttpServlet {
 
 	private ProductDAO productDAO;
 
-	String rutaIdioma;
+	private String rutaConfig;
+
+	private Properties properties;
+	private Properties configProperties;
+	private Properties envProperties;
+	private InputStream is;
+
+	private String env;
+
+	private String rutaIdioma;
+
+	private String rutaEnv;
+
+	private String idioma;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -46,6 +62,10 @@ public class HomeController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
+		properties = new Properties();
+		configProperties = new Properties();
+		envProperties = new Properties();
+		is = null;
 		productDAO = new ProductDAO();
 		listProducts = new ArrayList<>();
 	}
@@ -57,12 +77,30 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		rutaConfig = request.getServletContext().getRealPath("/config/config.properties");
+
+		configProperties = getProperties(rutaConfig);
+
+		env = configProperties.getProperty("env");
+
+		if (env.equals("dev")) {
+			rutaEnv = request.getServletContext().getRealPath("/config/dev.properties");
+
+		} else {
+			rutaEnv = request.getServletContext().getRealPath("/config/prod.properties");
+		}
+
+		if (DbConn.envProperties == null) {
+			envProperties = getProperties(rutaEnv);
+			DbConn.envProperties = envProperties;
+		}
+
 		if (request.getSession().getAttribute("idioma") == null) {
 			request.getSession().setAttribute("idioma", "es");
 		}
 
 		if (request.getParameter("idioma") != null && !request.getParameter("idioma").isEmpty()) {
-			String idioma = request.getParameter("idioma");
+			idioma = request.getParameter("idioma");
 
 			request.getSession().setAttribute("idioma", idioma);
 
@@ -90,20 +128,6 @@ public class HomeController extends HttpServlet {
 			request.setAttribute("mensaje", request.getParameter("mensaje"));
 		}
 
-//		try {
-//
-//			listProducts = productDAO.listAllProducts();
-//
-//		} catch (SQLException ex) {
-//			throw new ServletException(ex);
-//		}
-//
-//	
-//
-//		request.setAttribute("products", listProducts);
-//
-//		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
-
 		try {
 
 			listProducts(request, response);
@@ -130,6 +154,18 @@ public class HomeController extends HttpServlet {
 
 		request.setAttribute("products", listProducts);
 
-		request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+	}
+
+	private Properties getProperties(String ruta) {
+
+		try {
+			is = new FileInputStream(ruta);
+			properties.load(is);
+		} catch (IOException e) {
+			System.out.println(e.toString());
+		}
+
+		return properties;
 	}
 }
