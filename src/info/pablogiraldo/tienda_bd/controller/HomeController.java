@@ -40,12 +40,13 @@ public class HomeController extends HttpServlet {
 	private Properties properties;
 	private Properties configProperties;
 	private Properties envProperties;
+	private Properties proplan;
+
 	private InputStream is;
 
 	private String env;
 
 	private String rutaIdioma;
-
 	private String rutaEnv;
 
 	private String idioma;
@@ -65,6 +66,7 @@ public class HomeController extends HttpServlet {
 		properties = new Properties();
 		configProperties = new Properties();
 		envProperties = new Properties();
+		proplan = new Properties();
 		is = null;
 		productDAO = new ProductDAO();
 		listProducts = new ArrayList<>();
@@ -112,15 +114,7 @@ public class HomeController extends HttpServlet {
 			rutaIdioma = request.getServletContext().getRealPath("/lan/en.properties");
 		}
 
-		Properties proplan = new Properties();
-		InputStream is = null;
-
-		try {
-			is = new FileInputStream(rutaIdioma);
-			proplan.load(is);
-		} catch (IOException e) {
-			System.out.println(e.toString());
-		}
+		proplan = getProperties(rutaIdioma);
 
 		request.setAttribute("proplan", proplan);
 

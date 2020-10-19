@@ -7,10 +7,10 @@
 <%
 	Properties proplan = (Properties) request.getAttribute("proplan");
 
-if (request.getAttribute("products") == null) {
+	if (request.getAttribute("products") == null) {
 
-	ArrayList<Product> products = new ArrayList<Product>();
-}
+		ArrayList<Product> products = new ArrayList<Product>();
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -23,19 +23,19 @@ if (request.getAttribute("products") == null) {
 	<%
 		String displayLogin = (String) session.getAttribute("user") != null ? "display:none" : "";
 
-	String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
+		String displayLogout = (String) session.getAttribute("user") == null ? "display:none" : "";
 
-	String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
+		String usr = (String) session.getAttribute("user") != null ? (String) session.getAttribute("user") : "";
 
-	String displayAdmin = usr.equals("admin") ? "" : "display:none";
+		String displayAdmin = usr.equals("admin") ? "" : "display:none";
 
-	String displayUsr = !usr.equals("admin") ? "" : "display:none";
+		String displayUsr = !usr.equals("admin") ? "" : "display:none";
 
-	String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
+		String mensaje = (request.getAttribute("mensaje") != null) ? (String) request.getAttribute("mensaje") : "";
 
-	String selEn = session.getAttribute("idioma").equals("en") ? "selected" : "";
+		String selEn = session.getAttribute("idioma").equals("en") ? "selected" : "";
 
-	String selEs = session.getAttribute("idioma").equals("es") ? "selected" : "";
+		String selEs = session.getAttribute("idioma").equals("es") ? "selected" : "";
 	%>
 	<script type="text/javascript">
 		function loadIdioma(selection) {
@@ -54,7 +54,7 @@ if (request.getAttribute("products") == null) {
 		</form>
 	</div>
 	<h1>
-		<a style="font-size: 40px" href="<%=request.getContextPath()%>"><%=proplan.getProperty("inicio.titulo")%></a>
+		<a style="font-size: 40px" href="<%=request.getContextPath()%>/home"><%=proplan.getProperty("inicio.titulo")%></a>
 	</h1>
 
 	<div Style="<%=displayLogout%>">

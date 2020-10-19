@@ -18,26 +18,9 @@ public class DbConn {
 
 	private DbConn() {
 
-		driver = "com.mysql.cj.jdbc.Driver";
+//		driver = "com.mysql.cj.jdbc.Driver";
 
-		// Dev
-
-//		url = "jdbc:mysql://localhost:3306/tienda_bd?serverTimezone=UTC";
-//		usuario = "root";
-//		password = "";
-
-		// Prod
-
-//		url = "jdbc:mysql://ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/vfyv7vwy5u7165ss";
-//		usuario = "m9rbuvbdcexo6zye";
-//		password = "r86jezkjgdc8mb7z";
-
-//		try {
-//			Class.forName(driver);
-//			conn = DriverManager.getConnection(url, usuario, password);
-//		} catch (ClassNotFoundException | SQLException e) {
-//			e.printStackTrace();
-//		}
+		driver = envProperties.getProperty("db.driver");
 
 		url = envProperties.getProperty("db.url");
 		user = envProperties.getProperty("db.user");
