@@ -18,8 +18,6 @@ public class DbConn {
 
 	private DbConn() {
 
-//		driver = "com.mysql.cj.jdbc.Driver";
-
 		driver = envProperties.getProperty("db.driver");
 
 		url = envProperties.getProperty("db.url");
@@ -47,11 +45,4 @@ public class DbConn {
 
 		return conn;
 	}
-
-	public static void resetConnection() {
-
-		new DbConn();
-
-	}
-
 }
