@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.binary.Base64;
 
 import info.pablogiraldo.tienda_bd.common.Data;
+import info.pablogiraldo.tienda_bd.config.DbConn;
 import info.pablogiraldo.tienda_bd.dao.UserDAO;
 import info.pablogiraldo.tienda_bd.model.Product;
 import info.pablogiraldo.tienda_bd.model.User;
@@ -67,39 +68,45 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if (request.getParameter("name") != null && !request.getParameter("name").isEmpty()
-				&& request.getParameter("pass") != null && !request.getParameter("pass").isEmpty()) {
+		if (DbConn.envProperties == null) {
+			response.sendRedirect(request.getContextPath() + "/home");
+		} else {
 
-			name = request.getParameter("name");
-			pass = request.getParameter("pass");
+			if (request.getParameter("name") != null && !request.getParameter("name").isEmpty()
+					&& request.getParameter("pass") != null && !request.getParameter("pass").isEmpty()) {
 
-			Base64 base64 = new Base64();
+				name = request.getParameter("name");
+				pass = request.getParameter("pass");
 
-			encode_pass = new String(base64.encode(pass.getBytes()));
+				Base64 base64 = new Base64();
 
-			try {
-				usr = userDAO.getUser(name);
-			} catch (SQLException e) {
-				e.printStackTrace();
+				encode_pass = new String(base64.encode(pass.getBytes()));
+
+				try {
+					usr = userDAO.getUser(name);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+				if (usr.getPass().equals(encode_pass)) {
+
+					Data.carro = new ArrayList<Product>();
+
+					request.getSession().setAttribute("user", name);
+
+					request.getRequestDispatcher("/jsp/welcome.jsp").forward(request, response);
+
+				} else {
+					request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+				}
+
 			}
 
-			if (usr.getPass().equals(encode_pass)) {
+			else {
 
-				Data.carro = new ArrayList<Product>();
-
-				request.getSession().setAttribute("user", name);
-
-				request.getRequestDispatcher("/jsp/welcome.jsp").forward(request, response);
-
-			} else {
 				request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
 			}
 
-		}
-
-		else {
-
-			request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
 		}
 
 	}
