@@ -90,9 +90,11 @@ public class LoginController extends HttpServlet {
 				request.getSession().setAttribute("user", name);
 
 				request.getRequestDispatcher("/jsp/welcome.jsp").forward(request, response);
-			}
 
-			request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+
+			}
 
 		}
 
