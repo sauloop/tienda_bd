@@ -28,9 +28,9 @@ public class DbConn {
 		} else {
 			driver = "com.mysql.cj.jdbc.Driver";
 
-			url = "jdbc:mysql://localhost:3306/tienda_bd?serverTimezone=UTC";
-			user = "root";
-			pass = "";
+			url = "jdbc:mysql://ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/vfyv7vwy5u7165ss";
+			user = "m9rbuvbdcexo6zye";
+			pass = "r86jezkjgdc8mb7z";
 		}
 
 		try {
