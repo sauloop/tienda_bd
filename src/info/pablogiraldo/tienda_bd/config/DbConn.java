@@ -18,11 +18,20 @@ public class DbConn {
 
 	private DbConn() {
 
-		driver = envProperties.getProperty("db.driver");
+		if (envProperties != null) {
+			driver = envProperties.getProperty("db.driver");
 
-		url = envProperties.getProperty("db.url");
-		user = envProperties.getProperty("db.user");
-		pass = envProperties.getProperty("db.pass");
+			url = envProperties.getProperty("db.url");
+			user = envProperties.getProperty("db.user");
+			pass = envProperties.getProperty("db.pass");
+
+		} else {
+			driver = "com.mysql.cj.jdbc.Driver";
+
+			url = "jdbc:mysql://localhost:3306/tienda_bd?serverTimezone=UTC";
+			user = "root";
+			pass = "";
+		}
 
 		try {
 			Class.forName(driver);

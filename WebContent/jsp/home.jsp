@@ -69,7 +69,7 @@
 		%>
 	</div>
 
-	<div Style="<%=displayLogout%>">
+	<div Style="<%=displayUsr%>;<%=displayLogout%>">
 		<br /> <br /> <a style="font-size: 20px" href="vercarro"><%=proplan.getProperty("inicio.vercarro")%></a>
 		<br /> <br />
 	</div>
