@@ -79,18 +79,7 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		rutaConfig = request.getServletContext().getRealPath("/config/config.properties");
-
-		configProperties = getProperties(rutaConfig);
-
-		env = configProperties.getProperty("env");
-
-		if (env.equals("dev")) {
-			rutaEnv = request.getServletContext().getRealPath("/config/dev.properties");
-
-		} else {
-			rutaEnv = request.getServletContext().getRealPath("/config/prod.properties");
-		}
+		rutaEnv = getRutaEnv(request);
 
 		if (DbConn.envProperties == null) {
 			envProperties = getProperties(rutaEnv);
@@ -149,6 +138,26 @@ public class HomeController extends HttpServlet {
 		request.setAttribute("products", listProducts);
 
 		request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+	}
+
+	private String getRutaEnv(HttpServletRequest request) {
+
+		String rutaEnvironment = "";
+
+		rutaConfig = request.getServletContext().getRealPath("/config/config.properties");
+
+		configProperties = getProperties(rutaConfig);
+
+		env = configProperties.getProperty("env");
+
+		if (env.equals("dev")) {
+			rutaEnvironment = request.getServletContext().getRealPath("/config/dev.properties");
+
+		} else {
+			rutaEnvironment = request.getServletContext().getRealPath("/config/prod.properties");
+		}
+
+		return rutaEnvironment;
 	}
 
 	private Properties getProperties(String ruta) {
