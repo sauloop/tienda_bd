@@ -78,15 +78,9 @@ public class LoginController extends HttpServlet {
 				name = request.getParameter("name");
 				pass = request.getParameter("pass");
 
-				Base64 base64 = new Base64();
+				encode_pass = getEncodePass(pass);
 
-				encode_pass = new String(base64.encode(pass.getBytes()));
-
-				try {
-					usr = userDAO.getUser(name);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				usr = getUser(name);
 
 				if (usr.getPass().equals(encode_pass)) {
 
@@ -109,6 +103,28 @@ public class LoginController extends HttpServlet {
 
 		}
 
+	}
+
+	private User getUser(String name) {
+
+		User user = new User();
+
+		try {
+			user = userDAO.getUser(name);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return user;
+	}
+
+	private String getEncodePass(String pass) {
+
+		Base64 base64 = new Base64();
+
+		String enc_pass = new String(base64.encode(pass.getBytes()));
+
+		return enc_pass;
 	}
 
 }
